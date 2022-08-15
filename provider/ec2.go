@@ -188,7 +188,7 @@ func (api *Ec2Api) SetClient() {
 // SetConfig set the ec2 config
 func (api *Ec2Api) SetConfig() error {
 	var err error
-	api.Config, err = config.LoadDefaultConfig(api.Context, config.WithCredentialsProvider(api.CredentialsProvider))
+	api.Config, err = config.LoadDefaultConfig(api.Context, config.WithCredentialsProvider(api.CredentialsProvider), config.WithRegion(*aws.String("us-east-1")))
 	if err != nil {
 		return err
 	}

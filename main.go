@@ -27,17 +27,6 @@ func init() {
 }
 
 func main() {
-	credentialsInput := provider.Ec2CredentialsInput{
-		Id:      *config.Id,
-		Secret:  *config.Secret,
-		Session: "",
-	}
-
-	err := provider.Api.Setup(credentialsInput)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
 	defer discord.Session.Close()
 
 	discord.SetupSession()
